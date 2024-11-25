@@ -88,7 +88,7 @@ struct Vector
 
     void clear()
     {
-        for (size_t = 0; i != m_size; i++)
+        for (size_t i = 0; i != m_size; i++)
             std::destroy_at(&m_data[i]);
         m_size = 0;
     }
@@ -126,7 +126,7 @@ struct Vector
         auto old_data = m_data;
         auto old_cap = m_cap;
         m_cap = m_size;
-        if (m_size = 0)
+        if (m_size == 0)
             m_data = NULL;
         else
             m_data = m_alloc.allocate(m_size);
@@ -136,7 +136,7 @@ struct Vector
             {
                 std::__construct_at(&m_data[i], std::move_if_noexcept(old_data[i]));
                 //?                               若移动构造函数不抛出异常则获得右值引用
-                std::destory_at(&old_data[i]);
+                std::destroy_at(&old_data[i]);
             }
             m_alloc.deallocate(old_data, old_cap);
             //?  释放之前通过 allocate 方法分配的内存
@@ -181,7 +181,7 @@ struct Vector
 
     bool empty() const
     {
-        return m_size = 0;
+        return m_size == 0;
     }
 
     T const &operator[](size_t i) const
@@ -230,7 +230,7 @@ struct Vector
         that.m_cap = 0;
     }
 
-    Vector &operator=(Vector &&that)
+    Vector &operator=(Vector &&that) const
     {
         if (&that == this) [[unlikely]]
             return *this;

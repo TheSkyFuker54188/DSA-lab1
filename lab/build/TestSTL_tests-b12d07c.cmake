@@ -1,0 +1,5 @@
+add_test( [==[test vector]==] D:/PROGRAMMING/_DSA/Lab1/lab/build/TestSTL.exe [==[test vector]==]  )
+set_tests_properties( [==[test vector]==] PROPERTIES WORKING_DIRECTORY D:/PROGRAMMING/_DSA/Lab1/lab/build)
+add_test( [==[test list]==] D:/PROGRAMMING/_DSA/Lab1/lab/build/TestSTL.exe [==[test list]==]  )
+set_tests_properties( [==[test list]==] PROPERTIES WORKING_DIRECTORY D:/PROGRAMMING/_DSA/Lab1/lab/build)
+set( TestSTL_TESTS [==[test vector]==] [==[test list]==])
