@@ -10,7 +10,7 @@ struct M_int {
     M_int() : m_value(0) {};
     M_int(int v) : m_value(v) {}
 
-    auto operator==(M_int const &that) const noexcept {
+    auto operator==(M_int const &that) noexcept {
         return m_value == that.m_value;
     }
 };
