@@ -1,3 +1,5 @@
-test vector 1 0.136819
-test list 1 0.137335
+test 0 1
+test 0 1
+test vector 1 0.158577
+test list 1 0.118746
 ---
